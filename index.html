@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>نظام يوميات العمال</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- Start Overlay -->
+    <div class="overlay">
+      <div
+        class="add-worker w-100 h-100 d-flex align-items-center justify-content-center"
+      >
+        <div class="form w-100">
+          <h2>اضف اسم ويوميه العامل من هنا</h2>
+          <div class="form-group mb-2">
+            <label for="">اسم العامل</label>
+            <input
+              class="form-control add-worker-input"
+              type="text"
+              placeholder="من فضلك ادخل اسم العامل"
+            />
+          </div>
+          <div class="form-group mb-2">
+            <label for="">اليوميه </label>
+            <input
+              class="form-control wage"
+              type="text"
+              placeholder="من فضلك ادخل يوميه العامل"
+            />
+          </div>
+          <div class="close mt-3 d-flex gap-2">
+            <button class="btn-add-worker btn btn-primary">اضافه العامل</button>
+            <button class="btn btn-exit-overlay-add-worker btn-danger">
+              خروج
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Start Header  -->
+    <header class="header shadow-sm p-3">
+      <div class="container">
+        <div class="navbar">
+          <h3 class="logo">نظام ادارة اجور العمال</h3>
+          <div class="add-worker d-flex gap-2">
+            <a href="arshef.html" class="btn btn-primary btn-success"
+              >الارشيف</a
+            >
+            <div>
+              <button id="view-overlay" class="btn btn-primary">
+                اضافه عامل
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Start date And Next & Prev -->
+
+    <!-- Start Table worker -->
+    <div class="workers py-3">
+      <div class="container-fluid">
+        <h2 class="title-date text-center py-2">
+          <!-- js -->
+        </h2>
+        <div class="table-responsive">
+          <div class="date d-flex align-items-center justify-content-between">
+            <div
+              class="d-flex align-items-center justify-content-center gap-3 my-2 me-4"
+            >
+              <button class="btnPrev btn p-0">
+                <i class="fa-solid fa-chevron-right icon"></i>
+              </button>
+              <button class="btn-next btn p-0">
+                <i class="fa-solid fa-chevron-left icon"></i>
+              </button>
+              <input
+                id="search-week"
+                class="search-week form-control"
+                type="date"
+                lang="en-GB"
+                placeholder="dd/mm/yyyy"
+              />
+              <button class="view-week btn btn-primary">عرض</button>
+            </div>
+          </div>
+          <!-- <div class="position-relative">
+            <button class="btn ms-auto btn-danger close-week">
+              اغلاق الاسبوع
+            </button>
+          </div> -->
+
+          <table
+            class="table table-bordered table-striped table-hover text-center align-middle rounded"
+          >
+            <thead class="tableHead align-middle">
+              <!-- js  -->
+            </thead>
+
+            <tbody class="tableBody">
+              <!-- js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+
+    <script src="js/all.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/toastify.js"></script>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
