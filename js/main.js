@@ -21,6 +21,7 @@ const titleDate = document.querySelector(".title-date");
 const tableHead = document.querySelector(".tableHead");
 const tableBody = document.querySelector(".tableBody");
 
+const basu_url = "https://worker-backend-2.onrender.com/api";
 let dateNow = null;
 // load date From db
 addEventListener("load", getWeek);
@@ -49,7 +50,7 @@ async function addWrker(e) {
 
 async function fetchAddWorker(body) {
   try {
-    const response = await fetch("http://localhost:5000/api/workers", {
+    const response = await fetch(`${basu_url}/workers`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -77,7 +78,7 @@ async function fetchAddWorker(body) {
 
 async function getWeek() {
   try {
-    const response = await fetch("http://localhost:5000/api/home");
+    const response = await fetch(`${basu_url}/home`);
     const data = await response.json();
     if (data.success) {
       await displayData(data);
@@ -169,9 +170,7 @@ async function getWeekByDate() {
 
   try {
     if (date) {
-      const response = await fetch(
-        `http://localhost:5000/api/home/by-date?date=${date}`,
-      );
+      const response = await fetch(`${basu_url}/home/by-date?date=${date}`);
       const data = await response.json();
 
       if (data.success) {
@@ -192,9 +191,7 @@ async function getWeekByDate() {
 btnPrev.addEventListener("click", previousWeek);
 async function previousWeek() {
   try {
-    const response = await fetch(
-      `http://localhost:5000/api/weeks/previous?from=${dateNow}`,
-    );
+    const response = await fetch(`${basu_url}/weeks/previous?from=${dateNow}`);
     const data = await response.json();
     if (data.success) {
       displayData(data);
@@ -208,9 +205,7 @@ async function previousWeek() {
 btnNext.addEventListener("click", nextWeek);
 async function nextWeek() {
   try {
-    const response = await fetch(
-      `http://localhost:5000/api/weeks/next?from=${dateNow}`,
-    );
+    const response = await fetch(`${basu_url}/weeks/next?from=${dateNow}`);
     const data = await response.json();
     if (data.success) {
       displayData(data);
@@ -231,16 +226,13 @@ async function handelAttendance(workerId, date, checkboxEle) {
     status,
   };
   try {
-    const response = await fetch(
-      `http://localhost:5000/api/workers/${workerId}/attendance`,
-      {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
+    const response = await fetch(`${basu_url}/workers/${workerId}/attendance`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+      body: JSON.stringify(body),
+    });
     const data = await response.json();
     if (data.success) {
       toastify("تم تحديث حضور العمال بنجاح ", "#198754");
@@ -262,12 +254,9 @@ async function deleteWroker(workerId) {
   try {
     const result = confirm("هل تريد اتمام عمليه حذف العامل ");
     if (result) {
-      const response = await fetch(
-        `http://localhost:5000/api/workers/${workerId}`,
-        {
-          method: "DELETE",
-        },
-      );
+      const response = await fetch(`${basu_url}/workers/${workerId}`, {
+        method: "DELETE",
+      });
       const data = await response.json();
 
       if (data.success) {
