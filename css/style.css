@@ -70,3 +70,23 @@ input[type="checkbox"] {
   top: -45px;
   left: 0;
 } */
+
+.loadingPage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #0d6efdba;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 25652;
+}
+.spinner-grow {
+  width: 200px;
+  height: 200px;
+}
+.hidden-loadingPage {
+  display: none;
+}

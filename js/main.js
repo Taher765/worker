@@ -21,8 +21,12 @@ const titleDate = document.querySelector(".title-date");
 const tableHead = document.querySelector(".tableHead");
 const tableBody = document.querySelector(".tableBody");
 
+let loading = null;
 const basu_url = "https://worker-backend-2.onrender.com/api";
+// const basu_url = "http://localhost:5000/api";
+
 let dateNow = null;
+
 // load date From db
 addEventListener("load", getWeek);
 
@@ -78,13 +82,28 @@ async function fetchAddWorker(body) {
 
 async function getWeek() {
   try {
+    loading = true;
     const response = await fetch(`${basu_url}/home`);
     const data = await response.json();
-    if (data.success) {
-      await displayData(data);
+    loading = false;
+    if (data.success && !loading) {
+      displayData(data);
+      loadPage(loading);
     }
   } catch (error) {
     console.log(error);
+  }
+}
+
+// Start FUNVTION LOADING PAGE
+function loadPage(load) {
+  if (load) {
+    document
+      .querySelector(".loadingPage")
+      .classList.remove("hidden-loadingPage");
+  } else {
+    document.querySelector(".loadingPage").classList.add("hidden-loadingPage");
+    getWeek();
   }
 }
 
