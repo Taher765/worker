@@ -209,6 +209,7 @@ async function previousWeek() {
     if (data.success) {
       displayData(data);
       searchWeek.value = dateNow;
+      btnNext.removeAttribute("disabled");
     }
   } catch (err) {
     console.log(err);
@@ -223,6 +224,12 @@ async function nextWeek() {
     if (data.success) {
       displayData(data);
       searchWeek.value = dateNow;
+      console.log(data);
+      btnNext.removeAttribute("disabled");
+    } else {
+      console.log(data);
+      toastify("الاسبوع التالي لم يتم اضافته بعد", "#dc3545");
+      btnNext.setAttribute("disabled", "disabled");
     }
   } catch (err) {
     console.log(err);

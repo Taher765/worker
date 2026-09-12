@@ -15,12 +15,20 @@ const tableBody = document.querySelector(".table-body");
 const basu_url = "https://worker-backend-2.onrender.com/api";
 // const basu_url = "http://localhost:5000/api";
 
+// STRAT FUNCTION LOADING
+function loading(statu) {
+  document.querySelector(".loadingPage").classList.add(statu);
+}
+
 addEventListener("load", getMonth);
 // GET CURNT MONTH
 async function getMonth() {
+  loading("loading-on");
+
   try {
     const response = await fetch(`${basu_url}/archive/month`);
     const data = await response.json();
+    loading("loading-of");
 
     if (data.success) {
       displaydata(data);
@@ -29,6 +37,8 @@ async function getMonth() {
     }
   } catch (error) {
     console.log(error);
+  } finally {
+    loading("loading-of");
   }
 }
 
@@ -51,7 +61,7 @@ function displaydata(data) {
               </h4>
     `;
   totalPaid.innerHTML = `
-         <h3>اجمالي المدغوع</h3>
+         <h3>اجمالي المدفوع</h3>
               <h4 class="text-center text-warning">
                 <span class="bold">${data.data.summary.totalPaid}</span> <span>ريال</span>
               </h4>

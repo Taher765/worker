@@ -115,19 +115,30 @@ function closeoldWage() {
   oldWageDev.classList.add("popup-none");
   oldWageDev.classList.remove("popup-display");
 }
+
+// STRAT FUNCTION LOADING
+function loading(statu) {
+  document.querySelector(".loadingPage").classList.add(statu);
+}
+
 // GEt WORKER
 async function getWorker() {
   if (!workerId) {
     window.location = "index.html";
   }
   try {
+    loading("loading-on");
     const response = await fetch(`${base_url}/workers/${workerId}`);
     const data = await response.json();
+    loading("loading-of");
+
     if (data.success) {
       displayProfileData(data);
     }
   } catch (error) {
     console.log(error);
+  } finally {
+    loading("loading-of");
   }
 }
 

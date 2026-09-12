@@ -15,6 +15,17 @@
     <link rel="stylesheet" href="css/arshef.css" />
   </head>
   <body>
+    <!-- STRAT LOADING -->
+    <div class="loadingPage">
+      <div class="loader">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <div class="bar4"></div>
+        <div class="bar5"></div>
+        <div class="bar6"></div>
+      </div>
+    </div>
     <!-- Start Header  -->
     <header class="header shadow-sm p-3">
       <div class="container">
@@ -57,16 +68,16 @@
       <div class="container">
         <h2 class="my-2">تفاصيل الشهر</h2>
         <div class="row">
-          <div class="box col-3">
+          <div class="box col-lg-3 col-md-6 col-sm-12">
             <div class="title-month border py-3 rounded text-center"></div>
           </div>
-          <div class="box text-center col-3">
+          <div class="box text-center col-lg-3 col-md-6 col-sm-12">
             <div class="border py-3 rounded totalDue"></div>
           </div>
-          <div class="box col-3 text-center">
+          <div class="box col-lg-3 col-md-6 col-sm-12 text-center">
             <div class="border py-3 rounded totalPaid"></div>
           </div>
-          <div class="box col-3 text-center">
+          <div class="box col-lg-3 col-md-6 col-sm-12 text-center">
             <div class="border py-3 rounded totalRemaining"></div>
           </div>
         </div>
@@ -79,7 +90,7 @@
         <span class="totalWorkers badge text-bg-secondary"></span>
         <div class="table-responsive">
           <table
-            class="table table-bordered table-striped table-hover text-center align-middle"
+            class="table table-sm table-bordered table-striped table-hover text-center align-middle"
           >
             <thead>
               <tr class="">
