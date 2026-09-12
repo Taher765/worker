@@ -26,6 +26,11 @@ const basu_url = "https://worker-backend-2.onrender.com/api";
 
 let dateNow = null;
 
+// STRAT FUNCTION LOADING
+function loading(statu) {
+  document.querySelector(".loadingPage").classList.add(statu);
+}
+
 // load date From db
 addEventListener("load", getWeek);
 
@@ -80,14 +85,19 @@ async function fetchAddWorker(body) {
 // Start Function get data From DB
 
 async function getWeek() {
+  loading("loading-on");
   try {
     const response = await fetch(`${basu_url}/home`);
     const data = await response.json();
+    loading("loading-of");
+
     if (data.success) {
       displayData(data);
     }
   } catch (error) {
     console.log(error);
+  } finally {
+    loading("loading-of");
   }
 }
 
