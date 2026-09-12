@@ -22,11 +22,6 @@
   </head>
 
   <body>
-    <div class="loadingPage">
-      <div class="spinner-grow bg-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
-      </div>
-    </div>
     <!-- Start Overlay -->
     <div class="overlay">
       <div
@@ -87,27 +82,28 @@
         <h2 class="title-date text-center py-2">
           <!-- js -->
         </h2>
-        <div class="table-responsive">
-          <div class="date d-flex align-items-center justify-content-between">
-            <div
-              class="d-flex align-items-center justify-content-center gap-3 my-2 me-4"
-            >
-              <button class="btnPrev btn p-0">
-                <i class="fa-solid fa-chevron-right icon"></i>
-              </button>
-              <button class="btn-next btn p-0">
-                <i class="fa-solid fa-chevron-left icon"></i>
-              </button>
-              <input
-                id="search-week"
-                class="search-week form-control"
-                type="date"
-                lang="en-GB"
-                placeholder="dd/mm/yyyy"
-              />
-              <button class="view-week btn btn-primary">عرض</button>
-            </div>
+
+        <div class="date d-flex align-items-center justify-content-between">
+          <div
+            class="d-flex align-items-center justify-content-center gap-3 my-2 me-4"
+          >
+            <button class="btnPrev btn p-0">
+              <i class="fa-solid fa-chevron-right icon"></i>
+            </button>
+            <button class="btn-next btn p-0">
+              <i class="fa-solid fa-chevron-left icon"></i>
+            </button>
+            <input
+              id="search-week"
+              class="search-week form-control"
+              type="date"
+              lang="en-GB"
+              placeholder="dd/mm/yyyy"
+            />
+            <button class="view-week btn btn-primary">عرض</button>
           </div>
+        </div>
+        <div class="table-responsive">
           <!-- <div class="position-relative">
             <button class="btn ms-auto btn-danger close-week">
               اغلاق الاسبوع
@@ -115,7 +111,7 @@
           </div> -->
 
           <table
-            class="table table-bordered table-striped table-hover text-center align-middle rounded"
+            class="table table-sm table-bordered table-striped table-hover text-center align-middle rounded"
           >
             <thead class="tableHead align-middle">
               <!-- js  -->
